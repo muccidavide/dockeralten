@@ -1,0 +1,8 @@
+FROM nginx
+
+RUN apt update
+RUN apt install git -y
+RUN rm -rf /usr/share/nginx/html
+RUN git clone https://github.com/muccidavide/html-css-boolando /usr/share/nginx/html/
+RUN rm -rf /usr/share/nginx/html/.git
+RUN apt purge git -y

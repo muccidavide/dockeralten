@@ -1,0 +1,44 @@
+version: "3.6"
+
+services: #under services we are going ro DESCRIBE the containers
+    
+    mariadb: #network name that you can use to refer to that container within the newtwork that was created for them
+        container_name: mymariadb
+        image: mariadb:latest
+        volumes:
+            - /home/ubuntu/environment/mydata/mariadb:/var/lib/mysql
+        environment:
+            - MARIADB_PASSWORD=password 
+            - MARIADB_USER=user 
+            - MARIADB_ROOT_PASSWORD=password 
+            - MARIADB_DATABASE=database 
+     
+    
+    wordpress:
+        container_name: mywordpress
+        image: wordpress:latest
+        volumes: 
+            - /home/ubuntu/environment/mydata/wordpress:/var/www/html
+        ports:
+            - 8080:80
+        environment: #entrambe le sintassi sono corrette 
+        
+            WORDPRESS_DB_HOST: mariadb:3306
+            WORDPRESS_DB_USER: user 
+            WORDPRESS_DB_PASSWORD: password 
+            WORDPRESS_DB_NAME: database
+    
+    adminer: 
+        container_name: myadminer
+        image: adminer:latest
+        ports: 
+            - 8081:8080
+    
+    mailhog:
+        container_name: mymailhog
+        image: mailhog/mailhog
+        ports:  
+            - 8082:8025
+        
+            
+        

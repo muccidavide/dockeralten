@@ -1,0 +1,29 @@
+version: "3.6"
+
+services:
+        
+    ubuntu:
+        container_name:     myubuntu
+        image:              ubuntu:latest
+        command: 
+            - sleep #command
+            - infinity #Each command argument 
+        volumes: 
+            - /home/ubuntu/environment/mydata/shared:/mydata
+
+        
+    fedora:     
+        container_name:     myfedora
+        image:              fedora:latest
+        command: 
+            - tail
+            - -f
+            - /dev/null 
+        volumes: 
+            - /home/ubuntu/environment/mydata/shared:/shared
+        
+    alpine: 
+        container_name:     myalpine
+        image:              alpine:latest
+        command: ['sleep', 'infinity']
+    
