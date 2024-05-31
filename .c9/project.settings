@@ -7,7 +7,9 @@
         "@editor.acceptSuggestionOnEnter": "on",
         "@editor.snippetSuggestions": "top",
         "@editor.suggest.preview": true,
-        "@editor.suggest.showMethods": true
+        "@editor.suggest.showMethods": true,
+        "@git.defaultCloneDirectory": null,
+        "@git.path": null
     },
     "instance": {
         "@automaticShutdown": "30"
